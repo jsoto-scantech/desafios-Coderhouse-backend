@@ -1,0 +1,17 @@
+[
+	{
+		"email": "isskaneki@gmail.com",
+		"texto": "hola",
+		"fecha": "22/6/2021 23:16:23"
+	},
+	{
+		"email": "a_robles_torres@hotmail.com",
+		"texto": "como estas",
+		"fecha": "22/6/2021 23:16:32"
+	},
+	{
+		"email": "isskaneki@gmail.com",
+		"texto": "bien bien amiga",
+		"fecha": "22/6/2021 23:18:47"
+	}
+]
