@@ -1,0 +1,24 @@
+[
+	{
+		"nombre": "444",
+		"descripcion": "para calcular",
+		"codigo": "123456",
+		"foto": "https://img.icons8.com/ios/452/calculator--v1.png",
+		"precio": 200,
+		"stock": 2,
+		"admin": "true",
+		"id": 1,
+		"timestamp": "29/6/2021 23:49:00"
+	},
+	{
+		"nombre": "444",
+		"descripcion": "para calcular",
+		"codigo": "123456",
+		"foto": "https://img.icons8.com/ios/452/calculator--v1.png",
+		"precio": 200,
+		"stock": 2,
+		"admin": "true",
+		"id": 2,
+		"timestamp": "29/6/2021 23:49:06"
+	}
+]

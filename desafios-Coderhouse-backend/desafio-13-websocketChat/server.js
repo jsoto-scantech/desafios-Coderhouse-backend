@@ -13,7 +13,6 @@ app.use(express.static(__dirname + '/public'))
 io.on('connection', async socket => {
     console.log('Nuevo cliente conectado!');
     socket.emit('productos',productos.leer());
- 
     socket.emit('mensajes', mensajes.leer());
     
     socket.on('update', data => {
@@ -21,8 +20,10 @@ io.on('connection', async socket => {
     });
 
     socket.on('nuevo-mensaje', mensaje =>{
-        mensajes.guardar(mensaje).then(contenido => {}).catch(error=> {console.log(error)})
-        io.sockets.emit('mensajes', mensajes.leer());
+        mensajes.guardar(mensaje).then(contenido => {
+            io.sockets.emit('mensajes', mensajes.leer());
+        }).catch(error => {console.log(error)})
+        
     });
 
 });
