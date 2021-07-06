@@ -1,14 +1,26 @@
-[
-	{
-		"id": 1,
-		"timestamp": "29/6/2021 23:32:39",
-		"productos": [
-			{
-				"error": "Producto no encontrado"
-			},
-			{
-				"error": "Producto no encontrado"
-			}
-		]
-	}
-]
+{
+	"id": 1,
+	"timestamp": "5/7/2021 20:06:45",
+	"productos": [
+		{
+			"nombre": "1",
+			"descripcion": "fdfdfdfdfd",
+			"codigo": "3",
+			"foto": "3://img.icons8.com/ios/452/calculator--v1.png",
+			"precio": 200,
+			"stock": 2,
+			"id": 1,
+			"timestamp": "5/7/2021 20:05:51"
+		},
+		{
+			"nombre": "1",
+			"descripcion": "fdfdfdfdfd",
+			"codigo": "3",
+			"foto": "3://img.icons8.com/ios/452/calculator--v1.png",
+			"precio": 200,
+			"stock": 2,
+			"id": 1,
+			"timestamp": "5/7/2021 20:05:51"
+		}
+	]
+}

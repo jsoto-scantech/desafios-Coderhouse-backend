@@ -8,12 +8,19 @@ class Persistencia_carrito_txt{
 
     async guardar(carrito){  
 
-        await this.#fs.promises.writeFile(__dirname + `/carrito.txt`,JSON.stringify(carrito,null,'\t'))
-
+        try {
+           let contenido =  await this.#fs.promises.readFile(__dirname + `/carrito.txt`,'utf-8')
+                if(contenido){ 
+                    await  this.#fs.promises.writeFile(__dirname + `/carrito.txt`,JSON.stringify(carrito,null,'\t'))
+                }
+                return true;
+             } catch (error) {
+            throw error.message
+         }
+         
     } 
     
     leer(){
-        
         try {
             const data = this.#fs.readFileSync(__dirname + `/carrito.txt`,'utf-8')
             return  JSON.parse(data)

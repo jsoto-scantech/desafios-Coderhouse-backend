@@ -10,19 +10,19 @@ class Memoria_producto {
         this.id =0
     }
 
-    guardar(producto){
-        
+    async guardar(producto){
         try {
-            this.id+=1
-            producto.id = this.id
-            producto.timestamp = new Date().toLocaleString()
-            this.productos.push(producto)
-            //persistencia_producto_txt.guardar(this.productos).then((contenido) => {console.log(contenido)}).catch(err => console.log(err))
+                this.id+=1
+                producto.id = this.id
+                producto.timestamp = new Date().toLocaleString()
+                this.productos.push(producto)
+               // persistencia_producto_txt.guardar(this.productos)
+            console.log(this.productos)
+          await  persistencia_producto_txt.guardar(producto).then((contenido) => {console.log(contenido)}).catch(err => console.log(err))
             
-            persistencia_producto_txt.guardar(this.productos)
         
         } catch (error) {
-            return console.log(`existe problema al guardar :${error.message}`)
+            return console.log(`existe problema al guardar :${error}`)
            // throw new Error("existe un problema al guardar el producto")
         }
         
@@ -31,6 +31,7 @@ class Memoria_producto {
     leer(){
         
         try {
+            console.log(this.productos)
             return (this.productos.length ===0)? {error:"No hay productos cargados"}: this.productos
         } catch (error) {
             return console.log(`existe problema al leer:${error.message}`)

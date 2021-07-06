@@ -10,24 +10,24 @@ class Carrito{
         this.id = 1
     }
 
-    guardar(id_producto){
+    async guardar(id_producto){
         try {
-            let producto_resultado = listaproductos.buscarProductoId(id_producto)
-            if(producto_resultado === undefined ){
-                            //pequeño error , ya q guarda el error igual en el array 
-                return {error:"No hay productos para guardar"};
-            }else{
+            let producto_resultado =  await listaproductos.buscarProductoId(id_producto)
+            if(producto_resultado.error){
+                    return  producto_resultado;
+            }
                 this.carrito_productos.push(producto_resultado)
-                this.carrito =[{
+                this.carrito ={
                     id:this.id,
                     timestamp : new Date().toLocaleString(),
                     productos: this.carrito_productos
-                }]
-              
-                persistencia_carrito_txt.guardar(this.carrito)
+                }
+
+                await  persistencia_carrito_txt.guardar(this.carrito).then((contenido) => {console.log(contenido)}).catch(err => console.log(err))
                 
                 return this.carrito
-            }
+            
+        
 
         } catch (error) {
             return {error:"existe un error en guardar de memoria_carrito"}
@@ -45,10 +45,23 @@ class Carrito{
        
     }
 
+
+
     borrar(id_producto){
-        let productos = this.carrito
-        let eliminar = productos.map(ele => {return ele.productos[id_producto]})
-        console.log(eliminar)
+         
+        try {
+            let id = this.carrito.productos.findIndex(el => el.id == id_producto)
+            if(id != -1){
+                this.carrito.productos.splice(id,1)
+            }else{
+                return {error:"Producto no encontrado en el carrito"}
+            }
+
+        } catch (error) {
+            return {errror:"No hay productos q se pueda eliminar"}
+        }
+        
+        
     }
 
 

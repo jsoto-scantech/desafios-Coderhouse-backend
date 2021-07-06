@@ -7,53 +7,27 @@ class Persistencia_producto_txt {
         }
 
         async guardar(producto){  
-
-            await this.#fs.promises.writeFile(__dirname + `/producto.txt`,JSON.stringify(producto,null,'\t'))
-            /*
-            let objeto,objetoAgregar;
             let array_productos=[]
         try {
-            let contenido =  await this.#fs.promises.readFile(__dirname + `/productos.txt`,'utf-8')
+           let contenido =  await this.#fs.promises.readFile(__dirname + `/producto.txt`,'utf-8')
                 if(contenido){ 
-                     objeto = contenido
-                     console.log(objeto.nombre)
-                     for(let i =0; i < objeto.length;i++){
-                            array_productos.push(objeto[i])
-                         }
-                        objetoAgregar = {   
-                            nombre: producto.nombre,
-                            descripcion:producto.descripcion,
-                            codigo: producto.codigo,
-                            foto: producto.foto,
-                            precio: producto.precio,
-                            stock: producto.stock,
-                            id: producto.id,
-                            timestamp: producto.timestamp,
-                        }
-                        array_productos.push(objetoAgregar)
-                        //console.log(array_productos)
-
-                        this.#fs.promises.writeFile(__dirname + `/productos.txt`,JSON.stringify(producto,null,'\t'))
-                       //return array_productos;
+                    array_productos= JSON.parse(contenido)
+                    array_productos.push(producto)
+                    await  this.#fs.promises.writeFile(__dirname + `/producto.txt`,JSON.stringify(array_productos,null,'\t'))
+                return true;
                 }
-                
              } catch (error) {
-            throw new Error("hay un problema al guardar")
+            throw error
          }
-
-         */
-
-
-        } 
+    } 
 
     
         leer(){
-            
             try {
                 const data = this.#fs.readFileSync(`./productos.txt`,'utf-8')
                 return  JSON.parse(data)
             } catch (error) {
-                throw new Error("hay un problema al leer")
+                throw error
             }
     
         }

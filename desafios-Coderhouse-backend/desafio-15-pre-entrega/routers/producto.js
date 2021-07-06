@@ -2,31 +2,35 @@ const express = require('express')
 const router = express.Router()
 const productos = require('../api/producto');
 
+
+const administrador = true
 //no me funciono funciono 
 function admin (req,res,next){
-        req.body.admin  = "true"
-        if(req.body.admin != "true"){
+        
+        if(!administrador){
                 res.status(401).send({
                         error:-1,
                         descripcion:`ruta`,
-                        metodo:` No autorizado`
-                })
-        }else{
-                next()
-        }
+                        metodo:` No autorizado`,
+                        ruta:req.originalUrl
+         })}
+
+               return next()
+        
         
 }
 
-router.post('/productos/guardar',admin, (req,res) => {
-        res.json(productos.guardar(req.body))
-    
+router.post('/productos/guardar',admin, async  (req,res) => {
+        let p = await productos.guardar(req.body)
+        res.json(p)
 });
 
-router.get('/productos/listar', (req,res) => {
-        res.json(productos.leer())
+router.get('/productos/listar',admin, async ( req,res) => {
+        let pro = await productos.leer()
+        res.json(pro)
 });
 
-router.get('/productos/listar/:id', (req,res) => {
+router.get('/productos/listar/:id',admin, (req,res) => {
         res.json(productos.buscarProductoId(parseInt(req.params.id)))
 
 });

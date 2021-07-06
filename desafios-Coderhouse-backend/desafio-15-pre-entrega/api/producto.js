@@ -2,12 +2,14 @@ const persistencia_memoria_producto = require('../persistencia/productos/memoria
 
 class Producto {
 
-    guardar(producto){
-           return persistencia_memoria_producto.guardar(producto)
+     async guardar(producto){
+            let per = await persistencia_memoria_producto.guardar(producto)
+           return per
     }
 
-    leer(){
-           return  persistencia_memoria_producto.leer()
+    async leer(){
+          let le =  await persistencia_memoria_producto.leer()
+           return  le
     }
 
     buscarProductoId(id){

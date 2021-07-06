@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 const carrito = require('../api/carrito')
 
-router.post('/carrito/agregar/:id' , (req,res) => {
-        res.json(carrito.guardar(parseInt(req.params.id)))
+router.post('/carrito/agregar/:id' , async (req,res) => {
+        let carritos = await carrito.guardar(parseInt(req.params.id))
+        res.json(carritos)
 });
 
 router.get ('/carrito/listar', (req,res) => {
