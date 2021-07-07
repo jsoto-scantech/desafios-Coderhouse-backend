@@ -28,7 +28,7 @@ class Mensaje {
     
     async actualizar(id,mensaje) {
         try {
-            let mensajes = await knex.from('id').where('id', id).update(mensaje)
+            let mensajes = await knex.from('mensajes').where('id', id).update(mensaje)
             return mensajes;
         } catch (error) {
             throw error;
