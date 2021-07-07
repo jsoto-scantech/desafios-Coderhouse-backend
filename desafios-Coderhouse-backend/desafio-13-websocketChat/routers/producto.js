@@ -11,10 +11,6 @@ router.post('/productos/guardar', (req,res)=>{
 })
 
 router.get('/productos/listar',(req,res)=> {
- 
-       // let obtenerProductos = productos.leer()
-      //  if(obtenerProductos.length > 0){validacion= true }else{validacion=false};
-       // res.render('vista', {validacion:obtenerProductos.length, allProductos: obtenerProductos})
        res.json(productos.leer())
 
 })

@@ -44,31 +44,6 @@ class Mensaje{
          }
         }
 
-
-        /*Leer con promises (no funciona)
-       async  leer2(){
-            try {
-                let contenido = await this.#fs.promises.readFile(`./public/${this.ruta}.txt`,'utf-8')
-                return JSON.parse(contenido)
-            } catch (error) {
-                throw new Error("hay un problema al leer")  
-            }
-        }
-        */
-
-        /*no funciona
-        async  readFile() {
-            return new Promise((resolve, reject) => {
-              this.#fs.readFile(`./public/${this.ruta}.txt`, 'utf8', function (err, data) {
-                if (err) {
-                  reject(err);
-                }
-                resolve(JSON.parse(data));
-              });
-            });
-          }
-*/
-
 }
 
 module.exports= new Mensaje();
