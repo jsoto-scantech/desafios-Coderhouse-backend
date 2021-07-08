@@ -1,0 +1,10 @@
+/verifica si existe prueba, sino la crea.
+use prueba 
+
+/Verifica si la tabla (coleccion) esta , sino la crea
+db.prueba.insert({nombre:"fideos",categoria:"Harina",stock:20})
+db.prueba.insert({nombre:"Leche",categoria:"Lacteos",stock:30})
+db.prueba.insert({nombre:"Crema",categoria:"Lacteos",stock:15})
+
+/Listo mi coleccion con los datos
+db.prueba.find()
