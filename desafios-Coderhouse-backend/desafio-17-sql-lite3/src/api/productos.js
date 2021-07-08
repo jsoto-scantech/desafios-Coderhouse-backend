@@ -1,4 +1,4 @@
-const producto = require('../models/producto');
+const productos = require('../models/producto');
 
 class ProductoController {
 
@@ -6,35 +6,35 @@ class ProductoController {
 
     async guardar(producto) {
         try {
-            return await producto.guardar(producto);
+            return await productos.guardar(producto);
         } catch (error) {
             throw error;
         }
     }
     async listar() {
         try {
-            return await producto.listar();
+            return await productos.listar();
         } catch (error) {
             throw error;
         }
     }
     async borrar(id) {
         try {
-            return await producto.borrar(id);
+            return await productos.borrar(id);
         } catch (error) {
             throw error;
         }
     }
     async actualizar(id, producto) {
         try {
-            return await producto.actualizar(id,producto);
+            return await productos.actualizar(id,producto);
         } catch (error) {
             throw error;
         }
     }
     async buscar(id) {
         try {
-            return await producto.buscar(id);
+            return await productos.buscar(id);
         } catch (error) {
             throw error;
         }

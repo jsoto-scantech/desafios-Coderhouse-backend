@@ -7,18 +7,12 @@ class Producto {
 
     async guardar(producto) {
         try {
-            let productoNuevo ={
-                nombre : producto.nombre,
-                descripcion : producto.descripcion,
-                codigo : producto.codigo,
-                foto :  producto.foto,
-                stock : producto.stock,
-                fecha: new Date ().toLocaleString()
-            }
-            let resultado = await knex('productos').insert(productoNuevo);
+            let resultado = await knex('productos').insert(producto);
             return resultado;
         } catch (error) {
+            console.log(error)
             throw error;
+          
         }
     }
     async listar() {

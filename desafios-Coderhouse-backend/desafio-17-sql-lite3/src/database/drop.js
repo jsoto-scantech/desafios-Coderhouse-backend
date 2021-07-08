@@ -1,3 +1,13 @@
 const knex = require('../database/knex');
 
-knex.schema.dropTable('mensajes');
+
+(async ()=>{
+
+   await  knex.schema.dropTable('mensajes');
+   await knex.schema.dropTable('productos');
+    
+
+
+})()
+
+

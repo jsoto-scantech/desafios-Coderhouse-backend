@@ -8,8 +8,7 @@ class Mensaje {
         try {
             let mensajenuevo ={
                 mensaje : mensaje.mensaje,
-                email : mensaje.email,
-                fecha: new Date ().toLocaleString()
+                email : mensaje.email
             }
             let resultado = await knex('mensajes').insert(mensajenuevo);
             return resultado;

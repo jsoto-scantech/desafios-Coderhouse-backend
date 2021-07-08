@@ -3,10 +3,13 @@ const router = express.Router();
 const controlador = require('../api/productos');
 
 router.post('/producto/guardar', async (req, res) => {
+
+
     try {
         let producto = await controlador.guardar(req.body);
         res.json(producto);
     } catch (error) {
+        console.log(error)
         res.status(500).send(error);
     }
 });

@@ -2,12 +2,12 @@
   "name": "entregable",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index",
-    "dev": "nodemon ./src",
+    "dev": "nodemon .",
     "migrate": "node ./src/database/migracion",
-    "migrateproductos":"node ./src/database/migracion_productos",
+    "migrateproductos": "node ./src/database/migracion_producto",
     "drop": "node ./src/database/drop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,4 +23,3 @@
     "sqlite3": "^5.0.2"
   }
 }
-

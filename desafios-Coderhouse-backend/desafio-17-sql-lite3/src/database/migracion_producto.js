@@ -5,6 +5,7 @@ knex.schema.createTable('productos', table => {
     table.string('nombre');
     table.string('descripcion');
     table.integer('codigo');
+    table.integer('precio')
     table.string('foto');
     table.integer('stock');
     table.timestamp('fecha', { useTz: true }).notNullable().defaultTo(knex.fn.now());

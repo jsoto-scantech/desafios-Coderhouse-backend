@@ -15,9 +15,12 @@ app.use((err, req, res, next) => {
 
 const mensajeRouter = require('./routes/mensajes');
 const productoRouter = require('./routes/productos');
-console.log(mensajeRouter)
 app.use('/api', mensajeRouter);
 app.use('/api', productoRouter);
+
+app.get("/", (req,res) => {
+    res.send("hola")
+})
 
 const puerto = process.env.PORT || config.PUERTO;
 
